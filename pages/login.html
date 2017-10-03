@@ -1,0 +1,59 @@
+<html>
+<head>
+  <title>LOGIN PAGE</title>
+  <script>
+  function ajaxGet(endpoint, callback){
+    var xhr=new XMLHttpRequest();
+    xhr.open('GET', window.location.hostname + endpoint, true);
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState===XMLHttpRequest.DONE){
+            callback(xhr.status,xhr.responseText);
+        }
+    }
+    xhr.send(null);
+  }
+  function ajaxPost(data, endpoint, callback){
+    var xhr=new XMLHttpRequest();
+    xhr.open('POST', window.location.hostname + endpoint, true);
+    xhr.setRequestHeader('Content-Type','application/json');
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState===XMLHttpRequest.DONE){
+            callback(xhr.status,xhr.responseText);
+        }
+    }
+    xhr.send(JSON.stringify(data));
+  }
+  ajaxPost({name:"name",password:"pass"}, '/login', responseHandler);//400, 200:success or failed
+  ajaxGet('/logout', responseHandler);//401, 200:success
+  </script>
+  <script language="javascript">
+  function check(form){
+    if(form.userid.value == "Admin" && form.pwd.value == "library")
+    window.open('welcome.html');
+    else
+    alert("Error Password or Username");
+  }
+  </script>
+</head>
+<body bgcolor="pink">
+  <form>
+    <table width="30%" bgcolor="blue" align="center">
+      <tr>
+        <td colspan=2><center><font size=6><b>Login Page</b></font></center></td>
+      </tr>
+      <tr>
+        <td>Username:</td>
+        <td><input type="text" size=30 name="userid"></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td><input type="Password" size=30 name="pwd"></td>
+      </tr>
+      <tr>
+        <td ><input type="Reset"></td>
+        <td><input type="submit" onclick="check(this.form)" value="Login"></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

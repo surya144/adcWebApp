@@ -1,0 +1,24 @@
+{
+  "name": "adc-web-app",
+  "version": "1.0.0",
+  "description": "A webapp for app development club",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/srimadhan11/adcWebApp.git"
+  },
+  "license": "MIT",
+  "author": "Sri Madhan M<srimadhan.15cs@srit.org>",
+  "scripts": {
+    "start": "node server.js node-adc &",
+    "stop": "pkill --signal SIGINT node-adc"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.1",
+    "express-session": "^1.15.6",
+    "morgan": "^1.9.0",
+    "mysql": "^2.14.1",
+    "path": "^0.12.7"
+  }
+}

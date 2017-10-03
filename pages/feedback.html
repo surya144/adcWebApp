@@ -1,0 +1,21 @@
+<html>
+<head>
+  <script>
+  function ajaxPost(data, endpoint, callback){
+    var xhr=new XMLHttpRequest();
+    xhr.open('POST', window.location.hostname + endpoint, true);
+    xhr.setRequestHeader('Content-Type','application/json');
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState===XMLHttpRequest.DONE){
+            callback(xhr.status,xhr.responseText);
+        }
+    }
+    xhr.send(JSON.stringify(data));
+  }
+  ajaxPost({content:"feedback content"}, '/feedback', responseHandler);//401, 200:submitted or duplication
+  </script>
+</head>
+<body>
+  to be developed
+</body>
+</html>

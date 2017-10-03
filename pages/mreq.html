@@ -1,0 +1,57 @@
+<html>
+<head>
+  <title>member request</title>
+  <script>
+  function ajaxPost(data, endpoint, callback){
+    var xhr=new XMLHttpRequest();
+    xhr.open('POST', window.location.hostname + endpoint, true);
+    xhr.setRequestHeader('Content-Type','application/json');
+    xhr.onreadystatechange=function(){
+      if(xhr.readyState===XMLHttpRequest.DONE){
+        callback(xhr.status,xhr.responseText);
+      }
+    }
+    xhr.send(JSON.stringify(data));
+  }
+  ajaxPost({name:"name",password:"pass",rollno:"roll"}, '/request', responseHandler);//200:duplication or sent
+  </script>
+  <style>
+  div{
+    border-style: double;
+    margin-top: 5px;
+    margin-right: 400px;
+    margin-left: 400px;
+  }
+  </style>
+</head>
+<body>
+  <h1>
+    <center>
+      <b>MEMBER REQUEST</b>
+    </center>
+  </h1>
+  <div>
+    <form name="myForm">
+      <center>
+        <h3>
+          <b>Name</b>
+          </br>
+          <input type="text" name="id" placeholder="your name" required/>
+          </br></br>
+          <b>E-mail id</b>
+          </br>
+          <input type="email" name="email" placeholder="your email" required/>
+          </br></br>
+          <b>Roll no</b>
+          </br>
+          <input type="text" name:"number" placeholder="your roll no" required>
+          </br></br>
+        </h3>
+        <b>
+          <input type="submit" value="Submit" onclick="check (this.form)"/>
+        </b>
+      </center>
+    </form>
+  </div>
+</body>
+</html>

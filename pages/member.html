@@ -1,0 +1,92 @@
+<html>
+<head>
+  <title>Members</title>
+  <script>
+  function ajaxGet(endpoint, callback){
+    var xhr=new XMLHttpRequest();
+    xhr.open('GET', window.location.hostname + endpoint, true);
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState===XMLHttpRequest.DONE){
+            callback(xhr.status,xhr.responseText);
+        }
+    }
+    xhr.send(null);
+  }
+  ajaxGet('/memberlist', responseHandler);//500, 200:array of members
+  </script>
+  <style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  </style>
+</head>
+<body>
+  <h1>MEMBERS OF APP DEVELOPMENT CLUB</h1>
+  <h2>CLUB INCHARGE:</h2>
+  </br>
+  </br>Modigari Narendra
+  </br>Assistant Professor,
+  </br>Department of Computer science,
+  </br>Sri Ramakrishna Institute of Technology
+  </br>
+  <table border="10">
+    <tr>
+      <th>S.NO</th>
+      <th>Members</th>
+      <th>Year and dept</th>
+    </tr>
+    <tr align =center>
+      <td>1</td>
+      <td>Arun</td>
+      <td>2nd year Cse-A</td>
+    </tr>
+    <tr align =center>
+      <td>2</td>
+      <td>Bala</td>
+      <td>2nd year Cse-A</td>
+    </tr>
+    <tr align =center>
+      <td>3</td>
+      <td>Chandru</td>
+      <td>2nd year Cse-B</td>
+    </tr>
+    <tr align =center>
+      <td>4</td>
+      <td>Deepa</td>
+      <td> 2nd year Cse-B</td>
+    </tr>
+    <tr align =center>
+      <td>5</td>
+      <td> Gayathri</td>
+      <td> 3rd year Cse-A</td>
+    </tr>
+    <tr align =center>
+      <td>6</td>
+      <td> Hari</td>
+      <td>3rd year Cse-B</td>
+    </tr>
+    <tr align =center>
+      <td>7</td>
+      <td> Preethi</td>
+      <td> 3rd year Cse-B</td>
+    </tr>
+    <tr align =center>
+      <td>8</td>
+      <td> Priya</td>
+      <td> 3rd year Cse-B</td>
+    </tr>
+    <tr align =center>
+      <td>9</td>
+      <td> Roshini</td>
+      <td>3rd year Cse-B </td>
+    </tr>
+  </table>
+</body>
+</html>

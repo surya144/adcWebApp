@@ -1,0 +1,69 @@
+<html>
+<head>
+  <title>cources</title>
+  <script>
+  function ajaxGet(endpoint, callback){
+    var xhr=new XMLHttpRequest();
+    xhr.open('GET', window.location.hostname + endpoint, true);
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState===XMLHttpRequest.DONE){
+            callback(xhr.status,xhr.responseText);
+        }
+    }
+    xhr.send(null);
+  }
+  function ajaxPost(data, endpoint, callback){
+    var xhr=new XMLHttpRequest();
+    xhr.open('POST', window.location.hostname + endpoint, true);
+    xhr.setRequestHeader('Content-Type','application/json');
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState===XMLHttpRequest.DONE){
+            callback(xhr.status,xhr.responseText);
+        }
+    }
+    xhr.send(JSON.stringify(data));
+  }
+  ajaxGet('/enrollnumbers/' + courseId.toString(), responseHandler);//200: failed or result
+  ajaxPost({course:"courseId"}, '/enroll', responseHandler);//401, 200:enrolled or failed
+  </script>
+</head>
+<body background="course-bg.jpg">
+  <h1>
+    <center>LIST OF COURCES</center>
+  </h1>
+  <h3>
+    <font color="brown">
+      Learn how to make yourself ready for software engineer interviews
+      from this course.
+      Here we have offered three software cources which are
+      useful you to gain your knowledge.
+    </font>
+  </h3>
+  <h2>
+    <font color="black">Available Cources:</font>
+  </h2>
+  <ul>
+    <li>android</li>
+    <li>java</li>
+    <li>python</li>
+  </ul>
+  <h3>
+    <font color="green">select your intrested cources by clicking on the prespective picture</font>
+  </h3>
+  <center>
+    <table cellpadding="30" cellspacing="50">
+      <tr>
+        <td>
+          <a href="course-form2.html"><img src="course-android.jpg" width="300" height="300"></a>
+        </td>
+        <td>
+          <a href="course-form3.html"><img src="course-java.jpg" width="300" height="300"></a>
+        </td>
+        <td>
+          <a href="course-form4.html"><img src="course-python.jpg" width="300" height="300"></a>
+        </td>
+      </tr>
+    </table>
+  </center>
+</body>
+</html>
