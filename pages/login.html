@@ -27,11 +27,10 @@
   ajaxGet('/logout', responseHandler);//401, 200:success
   </script>
   <script language="javascript">
-  function check(form){
-    if(form.userid.value == "Admin" && form.pwd.value == "library")
-    window.open('welcome.html');
-    else
-    alert("Error Password or Username");
+  function check(){
+    var name=document.getElementById("userid").value;
+    var pass=document.getElementById("pwd").value;
+    
   }
   </script>
 </head>
@@ -51,7 +50,7 @@
       </tr>
       <tr>
         <td ><input type="Reset"></td>
-        <td><input type="submit" onclick="check(this.form)" value="Login"></td>
+        <td><input type="submit" onclick="check()" value="Login"></td>
       </tr>
     </table>
   </form>
